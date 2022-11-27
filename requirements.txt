@@ -5,5 +5,3 @@ audio-recorder-streamlit
 librosa
 audio_recorder_streamlit
 IPython
-scipy
-io
