@@ -3,4 +3,3 @@ audio-recorder-streamlit
 librosa
 IPython
 io
-pickle
