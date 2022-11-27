@@ -4,7 +4,6 @@ pandas
 audio-recorder-streamlit
 librosa
 audio_recorder_streamlit
-pickle
 IPython
 scipy
 io
