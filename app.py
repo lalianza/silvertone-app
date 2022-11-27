@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import librosa
 from audio_recorder_streamlit import audio_recorder
-from audiorecorder import audiorecorder
+#from audiorecorder import audiorecorder
 import pickle
 import IPython.display as ipd
 from scipy.io.wavfile import write
@@ -33,13 +33,13 @@ import io
 
 audio_bytes = audio_recorder()
 if audio_bytes:
-    audio = st.audio(audio_bytes, format='audio/wav')
-    # filename = 'audio.pkl'
-# with open('audio.pkl', 'rb') as f:
-#     audio_lib = pickle.load(f)
-data, samplerate = librosa.load(io.BytesIO(audio))
-    # print(len(data))
-    # print(type(data))
+    st.audio(audio_bytes, format='audio/wav')
+    filename = 'audio.pkl'
+with open('audio.pkl', 'rb') as f:
+    audio_lib = pickle.load(f)
+    data, samplerate = librosa.load(io.BytesIO(audio_lib))
+    print(len(data))
+    print(type(data))
     #pickle.dump(audio_bytes, open(filename, 'wb'))
 #    wav_file = open("audio.mp3", "wb")
 #    wav_file.write(audio_bytes.tobytes())
