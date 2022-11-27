@@ -1,7 +1,6 @@
 streamlit
-requests
-pandas
 audio-recorder-streamlit
 librosa
-audio_recorder_streamlit
 IPython
+io
+pickle
