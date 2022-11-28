@@ -4,7 +4,6 @@ from audio_recorder_streamlit import audio_recorder
 import pickle
 import io
 import numpy as np
-import pandas as pd
 import tensorflow as tf
 
 def preprocessing (audio):

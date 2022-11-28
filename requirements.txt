@@ -1,3 +1,6 @@
 streamlit
 audio-recorder-streamlit
 librosa
+tensorflow
+numpy
+pickle
