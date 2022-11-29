@@ -52,7 +52,7 @@ if audio_bytes:
     model = pickle.load(model_pickle)
     y = model.predict(X_flat)
     #audio_data = r.record(io.BytesIO(audio_bytes))
-    text = r.recognize_google(io.BytesIO(audio_bytes))
+    text = r.recognize_google(audio_bytes)
     st.subheader(y[0])
     st.subheader(text)
 
