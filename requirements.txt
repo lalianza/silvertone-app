@@ -3,3 +3,4 @@ audio-recorder-streamlit
 librosa
 tensorflow
 numpy
+speech_recognition

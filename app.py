@@ -7,6 +7,7 @@ import numpy as np
 import tensorflow as tf
 import base64
 import webbrowser
+import speech_recognition as sr
 
 st.title("Silvertone!")
 #st.header("Record a 5 seconds audio, and receive a % ....")
@@ -42,6 +43,7 @@ def preprocessing (audio):
 filename = None
 
 audio_bytes = audio_recorder()
+r = sr.Recognizer()
 
 if audio_bytes:
     st.audio(audio_bytes, format='audio/wav')
@@ -50,13 +52,8 @@ if audio_bytes:
     model_pickle = open("model_four_emotions_72,96.sav", "rb")
     model = pickle.load(model_pickle)
     y = model.predict(X_flat)
-    st.text(y)
-
-        
-    
-    
- 
-    # data, samplerate = librosa.load(io.BytesIO(audio_bytes))
-    # st.text(len(data))
-    # st.text(type(data))
+    audio_data = r.record(io.BytesIO(audio_bytes))
+    text = r.recognize_google(audio_data)
+    st.subheader(y[0])
+    st.subheader(text)
 
