@@ -58,7 +58,12 @@ if audio_bytes:
     y = model.predict(X_flat)
     st.subheader(y[0])
     audio_source = sr.AudioData(audio_bytes,44100,4)
-    text = r.recognize_google(audio_data=audio_source, language = 'en', show_all = True )
-    st.subheader(text['alternative'][0]["transcript"])
+    try:
+        text = r.recognize_google(audio_data=audio_source, language = 'en', show_all = True )
+        st.subheader(text['alternative'][0]["transcript"])
+    except:
+        text = "Sorry, can you repeat that?"
+        st.subheader(text)
+
 
 
