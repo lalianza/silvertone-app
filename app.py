@@ -47,13 +47,12 @@ r = sr.Recognizer()
 
 if audio_bytes:
     st.audio(audio_bytes, format='audio/wav')
-    print(type(audio_bytes))
     X_flat = preprocessing(io.BytesIO(audio_bytes))
     model_pickle = open("model_four_emotions_72,96.sav", "rb")
     model = pickle.load(model_pickle)
     y = model.predict(X_flat)
-    audio_data = r.record(io.BytesIO(audio_bytes))
-    text = r.recognize_google(audio_data)
+    #audio_data = r.record(io.BytesIO(audio_bytes))
+    text = r.recognize_google(io.BytesIO(audio_bytes))
     st.subheader(y[0])
     st.subheader(text)
 
