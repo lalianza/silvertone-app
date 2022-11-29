@@ -9,6 +9,10 @@ import base64
 import webbrowser
 import speech_recognition as sr
 
+
+
+
+
 st.title("Silvertone!")
 #st.header("Record a 5 seconds audio, and receive a % ....")
 st.markdown(""" <style>
@@ -23,6 +27,7 @@ st.sidebar.write("[Luiz Lianza](https://github.com/lalianza)")
 st.sidebar.write("[Victor Sattamini](https://github.com/vsattamini)")
 st.sidebar.write("[Lucas Gama](https://github.com/lucasgama1207)")
 st.sidebar.write("[Guilherme Barreto](https://github.com/guipyc)")
+
 
 def preprocessing (audio):
     spectrograms = []
@@ -51,9 +56,9 @@ if audio_bytes:
     model_pickle = open("model_four_emotions_72,96.sav", "rb")
     model = pickle.load(model_pickle)
     y = model.predict(X_flat)
-    #audio_data = r.record(io.BytesIO(audio_bytes))
-    audio_data = r.get_wav_data(audio_bytes)
-    text = r.recognize_google(audio_data)
     st.subheader(y[0])
-    st.subheader(text)
+    audio_source = sr.AudioData(audio_bytes,44100,4)
+    text = r.recognize_google(audio_data=audio_source, language = 'en', show_all = True )
+    st.subheader(text['alternative'][0]["transcript"])
+
 
