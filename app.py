@@ -7,7 +7,7 @@ import numpy as np
 import tensorflow as tf
 import base64
 import webbrowser
-import SpeechRecognition as sr
+import speech_recognition as sr
 
 st.title("Silvertone!")
 #st.header("Record a 5 seconds audio, and receive a % ....")
