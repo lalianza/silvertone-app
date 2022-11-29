@@ -23,23 +23,6 @@ st.sidebar.write("[Victor Sattamini](https://github.com/vsattamini)")
 st.sidebar.write("[Lucas Gama](https://github.com/lucasgama1207)")
 st.sidebar.write("[Guilherme Barreto](https://github.com/guipyc)")
 
-
-def add_bg_from_local(image_file):
-    with open(image_file, "rb") as image_file:
-        encoded_string = base64.b64encode(image_file.read())
-    st.markdown(
-    f"""
-    <style>
-    .stApp {{
-        background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
-        background-size: cover
-    }}
-    </style>
-    """,
-    unsafe_allow_html=True
-    )
-add_bg_from_local('logo2.png')
-
 def preprocessing (audio):
     spectrograms = []
     X, sr = librosa.load(audio)
