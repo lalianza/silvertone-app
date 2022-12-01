@@ -71,7 +71,7 @@ if audio_bytes:
     audio_source = sr.AudioData(audio_bytes,44100,4)
     try:
         text = r.recognize_google(audio_data=audio_source, language = 'en', show_all = True )
-        st.subheader(text['alternative'][0]["transcript"])
+        st.subheader(text['alternative'][0]["transcript"].title())
     except:
         text = "Sorry, can you repeat that?"
         st.subheader(text)
