@@ -67,11 +67,11 @@ if audio_bytes:
     model_pickle = open("model_svc_5emo_64,5.sav", "rb")
     model = pickle.load(model_pickle)
     y = model.predict(X_flat)
-    st.subheader(y[0])
+    st.subheader(y[0].title())
     audio_source = sr.AudioData(audio_bytes,44100,4)
     try:
         text = r.recognize_google(audio_data=audio_source, language = 'en', show_all = True )
-        st.subheader(text['alternative'][0]["transcript"].title())
+        st.subheader(text['alternative'][0]["transcript"].capitalize())
     except:
         text = "Sorry, can you repeat that?"
         st.subheader(text)
